@@ -1,0 +1,60 @@
+<apex:page controller="CommunityController" lightningStylesheets="true">
+     <apex:pageBlock title="Undelievered Packages">
+        <apex:pageBlockTable value="{!wrapperList}" var="package">
+            <apex:column value="{!package.name}" headerValue="Tracking Number"></apex:column>
+            <apex:column value="{!package.address}" headerValue="Shipping Address"></apex:column>
+            <apex:column value="{!package.status}" headerValue="Delivery Status"></apex:column>
+            <apex:column value="{!package.insurance}" headerValue="Insurance Amount"></apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+         <apex:pageBlock title="Delievered Packages">
+        <apex:pageBlockTable value="{!wrapperListDelivered}" var="packageDelivered">
+            <apex:column value="{!packageDelivered.name}" headerValue="Tracking Number"></apex:column>
+            <apex:column value="{!packageDelivered.address}" headerValue="Shipping Address"></apex:column>
+            <apex:column value="{!packageDelivered.status}" headerValue="Delivery Status"></apex:column>
+            <apex:column value="{!packageDelivered.insurance}" headerValue="Insurance Amount"></apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+<script>
+    function popUpWindow(id){
+        var newWindow = window.open('{!$Page.Popup}?id=' + id,'Popup','height=600, width=650, left=100, top=100, resizable=no, scrollbar=yes, toolbar=no, status=no');
+        if(window.focus){
+            newWindow.focus();
+        }
+        return false;
+    }
+</script>
+<apex:pageBlock title="Search for your account">
+<apex:form >
+    <apex:inputText value="{!searchKey}" label="Input"/>
+    <apex:commandButton value="Search Records" action="{!searchRecords}"/>
+    <apex:commandButton value="Clear List" action="{!clear}"/>
+    <apex:pageBlockTable value="{!acc }" var="acct">
+        <apex:column > 
+            <apex:outputLink onClick="return popUpWindow('{!acct.id}');"> Edit </apex:outputLink> 
+        </apex:column> 
+        <apex:column value="{!acct.Name}" /> 
+        <apex:column value="{!acct.Industry}" />
+        <apex:column value="{!acct.Phone}" />
+        <apex:column value="{!acct.Type}" />
+  </apex:pageBlockTable> 
+  </apex:form>
+  
+  </apex:pageblock>
+  
+
+
+        <apex:pageBlock title="Your package is : ">
+            <apex:form >
+                <apex:inputText value="{!queryTrack}" label="Input"/><br/>
+        <apex:commandButton value="Enter" action="{!searchTrack}"/>
+            <apex:pageBlockTable value="{!track}" var="a">
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.Delivery_Status__c}"/>
+            </apex:pageBlockTable>
+                </apex:form>
+        </apex:pageBlock>
+
+</apex:page>
