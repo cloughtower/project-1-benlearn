@@ -3,16 +3,14 @@ public inherited sharing class UndeliveredPackages_DataFactory {
 
     @isTest
     public static void makeData() {
-        
+
         // Create data for multiple users.
-        /* This is a very wasteful way to get the users.
-        Better way: find all users with the proper
-        profile and use some of them for testing. */
-        List<User> userList = [SELECT Id, Name FROM User
+
+        List<User> userList = [SELECT Id, Name, ContactId FROM User
                                WHERE Name='Pepper *Stark'];
         User testUser = userList[0];
-
-        List<User> userList2 = [SELECT Id, Name FROM User
+        
+        List<User> userList2 = [SELECT Id, Name, ContactId FROM User
                                 WHERE Name='Edna Frank'];
         User user2 = userList2[0];
 
@@ -68,9 +66,15 @@ public inherited sharing class UndeliveredPackages_DataFactory {
         // For the current version of the code, there should be 7 pieces of mail total.
         // Of those, only two should be visible for the user Pepper *Stark. 
         // Update: with 'Missing' included, 3 packages should be visible.
-        
-        //?????????????????Should missing mail should also be visible????????????
         insert mailList;
+
+        // Create Cases
+        List<Case> caseList = new List<Case>();
+        caseList.add(new Case(Status='New', Origin='Email', ContactId=contactList[1].Id, Description='Belongs to Edna Frank'));
+        caseList.add(new Case(Status='New', Origin='Email', ContactId=contactList[0].Id, Description='Belongs to Pepper *Stark'));
+        caseList.add(new Case(Status='New', Origin='Email', ContactId=contactList[0].Id, Description='Also belongs to Pepper *Stark'));
+        
+        insert caseList;
     }
 
 }

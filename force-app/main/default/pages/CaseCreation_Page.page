@@ -1,0 +1,39 @@
+<apex:page standardController="Case" extensions="CaseManagement_CX" docType="html-5.0">
+
+    <style>
+        label {
+            margin: 1cm;
+        }
+
+        #pageBlock1 {
+            margin = 3cm;
+        }
+    </style>
+
+    <apex:form>
+
+        <apex:pageBlock title="Create a New Case" id="pageBlock1">
+            <label for="reason">Case Reason</label>
+            <apex:selectList value="{!reason}" id="reason" multiselect="false">
+                <apex:selectOption itemValue=""></apex:selectOption>
+                <apex:selectOption itemValue="Website Issues"></apex:selectOption>
+                <apex:selectOption itemValue="Account Issues"></apex:selectOption>
+                <apex:selectOption itemValue="Missing Packages"></apex:selectOption>
+                <apex:selectOption itemValue="Damaged Packages"></apex:selectOption>
+                <apex:selectOption itemValue="Feedback"></apex:selectOption>
+                <apex:selectOption itemValue="Other"></apex:selectOption>
+            </apex:selectList><br/><br/><br/>
+            
+            <label for="subject">Subject</label>
+            <apex:inputText value="{!subject}" id="subject" maxlength="255" size="50"/><br/><br/><br/>
+            
+            <label for="description">Description</label>
+            <apex:inputTextarea value="{!description}" id="description" rows="10" cols="60"/><br/>
+            
+            <apex:commandButton action="{!submitCase}" value="Submit"/>
+        
+        </apex:pageBlock>
+    
+    </apex:form>
+
+</apex:page> 
