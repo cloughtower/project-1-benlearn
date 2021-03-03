@@ -1,0 +1,8 @@
+<apex:page controller="Feb22CodingChallenge_CC">
+    <apex:pageBlock title="Profitable Accounts">
+        <apex:pageBlockTable value="{!wrapList}" var="acc">
+            <apex:column headerValue="Account Name" value="{!acc.acc}" />
+            <apex:column headerValue="Expected Revenue from Account Oppurtunities" value="{!acc.expR}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

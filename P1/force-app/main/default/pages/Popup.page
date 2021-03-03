@@ -1,11 +1,9 @@
 <apex:page standardController="Account">
-  <!-- Begin Default Content REMOVE THIS -->
-  <h1>Congratulations</h1>
+
       <style type="text/css">
         p { font-weight: bold; color:red; }
     </style>
-  <p>This is your new Page: Popup</p>
-  <!-- End Default Content REMOVE THIS -->
+
     <apex:outputPanel id="popup">
   <apex:form >
     <apex:pageBlock title="Edit Account">

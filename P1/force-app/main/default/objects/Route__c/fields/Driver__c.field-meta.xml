@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Driver__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Driver</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Must be assigned to a driver</errorMessage>
+        <filterItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <valueField>User.ProfileId</valueField>
+        </filterItems>
+        <infoMessage>Assign the route to a driver</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Routes</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,23 @@
+<apex:page standardController="Account" recordSetVar="accounts">         <!-- declare page, set standard controller, set record variable-->
+    <div style = "text-align:center;">         <!--div element in dom, with inline css-->
+
+        <h1>Team 2 Page</h1>         <!--heading-->
+        
+        {!$User.FirstName} {!$User.LastName} <br/>         <!--Owner-->
+        
+        <apex:form > 
+        <apex:pageBlock title="Accounts">                              <!--page block for accounts-->
+            <apex:pageBlockTable value="{!accounts}" var="item">
+                <apex:column value="{!account.Name}"/>     <!--column name-->
+                <apex:column value="{!account.AccountNumber}"/>
+                                    <apex:inputField value="{!item.name}"/>
+
+
+                <apex:column value="{!account.AccountNumber}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form> 
+ 
+      
+      </div>
+</apex:page>

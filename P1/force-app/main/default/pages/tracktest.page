@@ -1,0 +1,12 @@
+<apex:page Controller="searchBox">
+    <apex:form >
+        <apex:inputText value="{!searchKey}" label="Input"/><br/>
+        <apex:commandButton value="Enter" action="{!search}"/>
+        <apex:pageBlock title="Your package is : ">
+            <apex:pageBlockTable value="{!track}" var="a">
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.Delivery_Status__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

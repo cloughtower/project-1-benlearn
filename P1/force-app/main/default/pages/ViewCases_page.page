@@ -1,0 +1,18 @@
+<apex:page standardController="Case" extensions="CaseManagement_CX" lightningStyleSheets="true">
+    <apex:form > 
+        <apex:pageBlock title="Your Cases">
+            <apex:commandButton action="{!newCase}" value="New Case" style="position: absolute; left: 50%;"/>
+            <br/><br/>
+            <apex:pageBlockTable value="{!caseList}" var="case">
+                <apex:column value="{!case.CaseNumber}" headerValue="Case Number">
+                    <!-- <apex:commandLink value="{!case.CaseNumber}" action="{!showDetail}" target="_top">
+                        <apex:param name="idOfRecord" value="{!case.Id}" assignTo="{!recordId}"/>
+                    </apex:commandLink> -->
+                </apex:column>
+                <apex:column value="{!case.Reason}" headerValue="Case Reason"></apex:column>
+                <apex:column value="{!case.Subject}" headerValue="Case Subject"></apex:column>
+                <apex:column value="{!case.Status}" headerValue="Case Status"></apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
