@@ -36,4 +36,4 @@ This project is end-user oriented, so once a customer logs in they will be able 
 Charaf Boulafaa, Joshua Clougherty, William Hatto, Jordan McClellan 
 
 # License
-This project uses the following license: <cc>.
+This project uses the following license: [Acceptable Use and External-Facing Services Policy](https://www.salesforce.com/content/dam/web/en_us/www/documents/legal/Agreements/policies/ExternalFacing_Services_Policy.pdf).
